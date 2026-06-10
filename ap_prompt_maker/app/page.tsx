@@ -5,9 +5,9 @@ import TemplateCard from "@/components/templatecard";
 
 export default function HomePage() {
   // ========== ALL CONTENT DATA ==========
-  const navOptions = ["Option 1", "Option 2", "Option 3"];
+  const navOptions = ["English", "Bangla", "Arabic"];
 
-  const categories = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
+  const categories = ["Arabic", "Quran", "Tafsir", "Hadith", "Fiqh", "Islamic History"];
 
   const pageHeader = {
     title: "AI Template Hub",
