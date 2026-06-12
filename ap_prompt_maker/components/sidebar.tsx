@@ -1,17 +1,14 @@
-// components/Sidebar.tsx
 'use client';
-import { useState } from 'react';
 
 interface SidebarProps {
   categories: string[];
-  selectedValue?: string;
+  selectedCategory: string;
+  onSelectCategory: (category: string) => void;
 }
 
-export default function Sidebar({ categories, selectedValue }: SidebarProps) {
-  const [selected, setSelected] = useState(selectedValue || categories[0]);
-
+export default function Sidebar({ categories, selectedCategory, onSelectCategory }: SidebarProps) {
   const handleClick = (cat: string) => {
-    setSelected(cat);
+    onSelectCategory(cat);
   };
 
   return (
@@ -29,7 +26,7 @@ export default function Sidebar({ categories, selectedValue }: SidebarProps) {
               key={idx}
               onClick={() => handleClick(cat)}
               className={`px-4 py-2.5 transition cursor-pointer border-l-4 font-medium ${
-                selected === cat
+                selectedCategory === cat
                   ? 'text-white bg-gray-700/90 border-l-blue-500'
                   : 'text-gray-300 hover:bg-gray-700/70 hover:text-white border-l-transparent hover:border-l-blue-500'
               }`}

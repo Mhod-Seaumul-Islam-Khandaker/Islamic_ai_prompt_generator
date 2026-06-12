@@ -1,4 +1,6 @@
-// app/page.tsx
+'use client';
+
+import { useState } from "react";
 import TopNav from "@/components/topnav";
 import Sidebar from "@/components/sidebar";
 import TemplateCard from "@/components/templatecard";
@@ -20,6 +22,7 @@ export default function HomePage() {
       title: "Template 1",
       description: "Clean & professional",
       variant: "Classic",
+      category: "Arabic",
       imageUrl: "https://picsum.photos/id/1/400/300",
       url: "https://example.com/template1",
     },
@@ -28,6 +31,7 @@ export default function HomePage() {
       title: "Template 1",
       description: "Modern & bold",
       variant: "Modern",
+      category: "Arabic",
       imageUrl: "https://picsum.photos/id/20/400/300",
       url: "https://example.com/template1-modern",
     },
@@ -36,6 +40,7 @@ export default function HomePage() {
       title: "Template 2",
       description: "Minimalist",
       variant: "Light",
+      category: "Quran",
       imageUrl: "https://picsum.photos/id/30/400/300",
       url: "https://example.com/template2",
     },
@@ -44,6 +49,7 @@ export default function HomePage() {
       title: "Template 2",
       description: "Corporate",
       variant: "Dark",
+      category: "Tafsir",
       imageUrl: "https://picsum.photos/id/40/400/300",
       url: "https://example.com/template2-corporate",
     },
@@ -52,6 +58,7 @@ export default function HomePage() {
       title: "Template 3",
       description: "Creative",
       variant: "Artistic",
+      category: "Hadith",
       imageUrl: "https://picsum.photos/id/50/400/300",
       url: "https://example.com/template3",
     },
@@ -60,6 +67,7 @@ export default function HomePage() {
       title: "Template 3",
       description: "Technical",
       variant: "Precise",
+      category: "Fiqh",
       imageUrl: "https://picsum.photos/id/60/400/300",
       url: "https://example.com/template3-technical",
     },
@@ -72,6 +80,17 @@ export default function HomePage() {
 
   const hintText = "Click any template to preview (opens in new tab)";
 
+  // ========== STATE & HANDLERS ==========
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredTemplates = templates.filter(
+    (template) => template.category === selectedCategory
+  );
+
   // ========== RENDER ==========
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -79,7 +98,11 @@ export default function HomePage() {
 
       <div className="container mx-auto px-4 py-6 md:px-6">
         <div className="flex flex-col md:flex-row gap-6">
-          <Sidebar categories={categories} />
+          <Sidebar 
+            categories={categories} 
+            selectedCategory={selectedCategory}
+            onSelectCategory={handleCategoryChange}
+          />
 
           {/* Right Main Area */}
           <div className="flex-1">
@@ -89,7 +112,7 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {templates.map((template) => (
+              {filteredTemplates.map((template) => (
                 <TemplateCard key={template.id} {...template} />
               ))}
             </div>

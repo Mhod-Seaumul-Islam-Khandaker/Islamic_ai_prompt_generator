@@ -1,4 +1,7 @@
 ap_prompt_maker/bun.lock
-// Ignore the ai prompt folder. Be careful, the folder name has spaces.
-
-ap_prompt_maker/ai prompt/
+// Ignore the ai_prompt folder. 
+ai_prompt/
+Ai_prompts/Advanced Arabic Analysis of a Word.docx
+Ai_prompts/Arabic word breaker.docx
+Ai_prompts/Root finder find the roots of your Arabic word.docx
+ap_prompt_maker/app/favicon.ico
