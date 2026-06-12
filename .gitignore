@@ -1,1 +1,4 @@
 ap_prompt_maker/bun.lock
+// Ignore the ai prompt folder. Be careful, the folder name has spaces.
+
+ap_prompt_maker/ai prompt/
