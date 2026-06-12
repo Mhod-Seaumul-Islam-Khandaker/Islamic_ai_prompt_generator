@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "bun --bun next dev",
+    "clean": "rm -rf .next node_modules bun.lockb && bun install",
     "build": "bun --bun next build",
     "start": "bun --bun next start",
     "lint": "next lint"
+
   },
   "dependencies": {
     "next": "16.2.7",

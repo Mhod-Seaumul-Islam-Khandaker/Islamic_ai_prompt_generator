@@ -19,12 +19,12 @@ export default function HomePage() {
   const templates = [
     {
       id: 1,
-      title: "Template 1",
-      description: "Clean & professional",
+      title: "Route Finder",
+      description: "Find your Arabic roots.",
       variant: "Classic",
       category: "Arabic",
       imageUrl: "https://picsum.photos/id/1/400/300",
-      url: "https://example.com/template1",
+      url: "/rf",
     },
     {
       id: 2,
